@@ -4,31 +4,30 @@ class Stand
   float standBaseWidth = 0;
   float standTopWidth = 0;
   color standColor = color(0,0,0);
+  String name = "";
   
-  Stand(float sLength, float sBaseWidth, float sTopWidth, color sColor)
+  Stand(float sLength, float sBaseWidth, float sTopWidth, color sColor, String sName)
   {
     standLength = sLength;
     standBaseWidth = sBaseWidth;
     standTopWidth = sTopWidth;
     standColor = sColor;
+    name = sName;
   }
   
   void drawStand(Coordinates coordinates)
   {
-     float x1 = 0;
-     float y1 = 0;
+     float x1 = coordinates.xAxis;
+     float y1 = coordinates.yAxis;
      float x2 = x1 + standTopWidth;
-     float y2 = 0;
+     float y2 = y1;
      float x4 = x1 + standTopWidth/2 - standBaseWidth/2;
      float y4 = y1 + standLength;
      float x3 = x2 - standTopWidth/2 + standBaseWidth/2;
      float y3 = y4;
      
-     pushMatrix();
-     translate(coordinates.xAxis, coordinates.yAxis);
      fill(standColor);
      quad(x1,y1,x2,y2,x3,y3,x4,y4);
      noFill();
-     popMatrix();
   }
 }

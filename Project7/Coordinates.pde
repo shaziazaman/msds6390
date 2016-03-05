@@ -7,4 +7,8 @@ class Coordinates
     xAxis = xValue;
     yAxis = yValue;
   }  
+  
+  String toString(){
+    return "(" + xAxis +"," + yAxis + ")";
+  }
 }
