@@ -28,7 +28,7 @@ class Windmill
     float y = coordinates.yAxis+centerDiameter/2;
     Coordinates sCoordinates = new Coordinates(x,y);
     stand.drawStand(sCoordinates);
-    runWindmill();
+    drawBlades();
   }
   
   void drawCenter()
@@ -40,7 +40,7 @@ class Windmill
     noFill();
   }
   
-  void runWindmill()
+  void drawBlades()
   {
     for(Blade blade : blades)
     {

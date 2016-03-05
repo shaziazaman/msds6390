@@ -18,8 +18,16 @@ void setup()
 
 void mouseDragged() 
 {
- windmills[0].coordinates.xAxis = mouseX;
- windmills[0].coordinates.yAxis = mouseY;
+  
+ Coordinates pCoordinates = new Coordinates(pmouseX, pmouseY);
+ for(Windmill windmill : windmills)
+ {
+   if(pCoordinates.isCloseToCoordinates(windmill.coordinates))
+   {
+     windmill.coordinates.xAxis = mouseX;
+     windmill.coordinates.yAxis = mouseY;
+   }
+ }
 }
 
 void draw()
