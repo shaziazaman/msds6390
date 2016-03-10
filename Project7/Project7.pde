@@ -5,10 +5,12 @@
 // Project 7
 
 Windmill[] windmills = new Windmill[3];
+PImage img;
 
 void setup()
 {
-  size(800,800);
+ size(960,600);
+ img = loadImage("fields3.jpg");;
   noStroke();
   windmills[0] = new Windmill(new Coordinates(150,150), "windmill0");
   windmills[1] = new Windmill(new Coordinates(350,150), "windmill1");
@@ -32,7 +34,8 @@ void mouseDragged()
 
 void draw()
 {
-  background(102,206,193);
+  background(img);
+  
   for(Windmill windmill: windmills)
   {
     windmill.drawWindmill();
