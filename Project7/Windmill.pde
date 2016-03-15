@@ -5,19 +5,20 @@ class Windmill
   float speed= 0.2;
   color centerColor = color(121,113,97);
   Stand stand;
-  Blade[] blades = new Blade[3];
+  Blade[] blades;
   String name = "";
-  
-  Windmill(Coordinates wCoordinates, String wName)
+  float resizeRatio = 1;
+  Windmill(Coordinates wCoordinates, String wName, int bladeNumber)
   {
     coordinates = wCoordinates;
     name = wName;
     stand = new Stand(200, 50, centerDiameter, color(4,131,9), name+"Stand");
-    float rotationAngle = 0;
+    float rotationAngle = random(0,PI);
+    blades = new Blade[bladeNumber];
     for(int i = 0; i < blades.length; i++)
     {
        blades[i] = new Blade(115, 0.2, color(250,218,103), rotationAngle, name+"Blade"+i);
-       rotationAngle += 3*PI/4;
+       rotationAngle += 2*PI/bladeNumber;
     }
   }
   
@@ -49,5 +50,26 @@ class Windmill
       Coordinates bCoordinates = new Coordinates(x,y);
       blade.drawBlade(bCoordinates, speed);
     } 
+  }  
+  
+  void resize(float resizeValue)
+  {
+    if(resizeRatio < .3 ) {
+      return;
+    }
+    float ratio = 1;
+    resizeRatio +=  resizeValue/100;
+    if(resizeValue < 0) {  
+     ratio = resizeRatio;
+    } else {
+     ratio = 1/resizeRatio;
+    }
+    
+    centerDiameter *= ratio;
+    stand.resize(ratio);
+    for(Blade blade: blades)
+    {
+      blade.resize(ratio);
+    }    
   }
 }

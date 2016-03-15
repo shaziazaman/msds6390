@@ -28,5 +28,11 @@ class Blade
     triangle(x1,y1,x2,y2,x3,y3);
     noFill();
   }
-  
+    
+   void resize(float resizeRatio)
+  {
+    bladeLength *= resizeRatio;
+    bladeWidth *= resizeRatio;
+  }
+
 }
