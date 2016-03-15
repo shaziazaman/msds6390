@@ -2,6 +2,8 @@ class Blade
 {
   float bladeLength = 0;
   float bladeWidth = 0;
+  float originalBladeLength = bladeLength;
+  float originalBladeWidth = bladeWidth;
   color bladeColor = color(0,0,0);
   float rotationAngle = 0;
   String name = "";
@@ -9,6 +11,8 @@ class Blade
   {
     bladeLength = bLength;
     bladeWidth = bWidth;
+    originalBladeLength = bladeLength;
+    originalBladeWidth = bladeWidth;
     bladeColor = bColor;
     rotationAngle = bRotationAngle;
     name = bName;
@@ -31,8 +35,8 @@ class Blade
     
    void resize(float resizeRatio)
   {
-    bladeLength *= resizeRatio;
-    bladeWidth *= resizeRatio;
+    bladeLength = originalBladeLength * resizeRatio;
+    bladeWidth = originalBladeWidth * resizeRatio;
   }
 
 }

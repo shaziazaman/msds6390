@@ -14,7 +14,6 @@ void mouseDragged()
 
 void mouseWheel(MouseEvent event) {
   float e = event.getCount();
-  println(e);
   
   Coordinates pCoordinates = new Coordinates(pmouseX, pmouseY);
   for(Windmill windmill : windmills)

@@ -2,6 +2,7 @@ class Windmill
 {
   Coordinates coordinates;
   float centerDiameter = 10;
+  float originalCenterDiameter = centerDiameter;
   float speed= 0.2;
   color centerColor = color(121,113,97);
   Stand stand;
@@ -65,7 +66,7 @@ class Windmill
      ratio = 1/resizeRatio;
     }
     
-    centerDiameter *= ratio;
+    centerDiameter = originalCenterDiameter * ratio;
     stand.resize(ratio);
     for(Blade blade: blades)
     {

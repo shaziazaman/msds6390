@@ -3,6 +3,9 @@ class Stand
   float standLength = 0;
   float standBaseWidth = 0;
   float standTopWidth = 0;
+  float originalStandLength = standLength;
+  float originalStandBaseWidth = standBaseWidth;
+  float originalStandTopWidth = standTopWidth;
   color standColor = color(0,0,0);
   String name = "";
   
@@ -11,6 +14,9 @@ class Stand
     standLength = sLength;
     standBaseWidth = sBaseWidth;
     standTopWidth = sTopWidth;
+    originalStandLength = standLength;
+    originalStandBaseWidth = standBaseWidth;
+    originalStandTopWidth = standTopWidth;
     standColor = sColor;
     name = sName;
   }
@@ -33,8 +39,8 @@ class Stand
   
   void resize(float resizeRatio)
   {
-    standLength *= resizeRatio;
-    standBaseWidth *= resizeRatio;
-    standTopWidth *= resizeRatio;
+    standLength = originalStandLength * resizeRatio;
+    standBaseWidth = originalStandBaseWidth * resizeRatio;
+    standTopWidth = originalStandTopWidth * resizeRatio;
   }
 }
