@@ -25,8 +25,3 @@ void mouseWheel(MouseEvent event) {
    }
  }
 }
-
-//void clientEvent(Client client) {
-// print("Server Says:  ");
-// System.out.println("from event" + client.readString());
-//}
