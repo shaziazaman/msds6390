@@ -20,21 +20,15 @@ class WeatherData {
     }
 
     String jsonString = dataString.substring(index);  
-    System.out.println(jsonString);
     JSONObject jsonObj = parseJSONObject(jsonString);
     if (jsonObj != null)
     {
       System.out.println(jsonObj.toString());
       city = jsonObj.getString("name");
-      System.out.println("City: " + city);
       JSONObject windJsonObj = jsonObj.getJSONObject("wind");
-      System.out.println("wind: " + windJsonObj.toString());
       windSpeed = windJsonObj.getFloat("speed");
-      System.out.println("speed: " + windSpeed);
       JSONObject mainJsonObj = jsonObj.getJSONObject("main");
-      System.out.println("main: " + mainJsonObj.toString());
       temperature = mainJsonObj.getFloat("temp");
-      System.out.println("temperature: " + temperature);
     }
   }
 }

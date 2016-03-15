@@ -13,6 +13,7 @@ String url="api.openweathermap.org";
 String api = "/data/2.5/weather?appid=" + apiKey + "&units=imperial&q=";
 String[] cities = {"San_Francisco,ca","Dallas,tx","Chicago,il"};
 WeatherData weatherData;
+color textColor = color(0,0,0);
 void setup()
 {
  size(960,600);
@@ -27,6 +28,7 @@ void setup()
  prepareOnExitHandler();
  
  weatherData = new WeatherData();
+ 
  noStroke();
  img = loadImage("fields3.jpg");
  windmills[0] = new Windmill(new Coordinates(150,150), "windmill0",3);
@@ -41,11 +43,20 @@ void draw()
   {
      weatherData.parseData(weatherClient.readString());
   }
-  
+  printWeatherDetails();
   for(Windmill windmill: windmills)
   {
     windmill.speed = weatherData.windSpeed;
     windmill.drawWindmill();
   }
   delay(100);
+}
+
+public void printWeatherDetails() {
+  fill(textColor);
+  textSize(20);
+  text("City: " + weatherData.city, 6*width/8,height/8);
+  text("Temperature: " + weatherData.temperature, 6*width/8,2*height/8);
+  text("Wind Speed: " + weatherData.windSpeed, 6*width/8,3*height/8);
+  noFill();
 }
