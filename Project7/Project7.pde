@@ -65,7 +65,7 @@ void draw()
     spiralColor = get((int)xValueForWindSpiralArray[i],(int)yValue);
     pushMatrix();
     translate(xValueForWindSpiralArray[i], yValue);
-    drawSpiral(1000, 30, 200, 0.992);
+    drawSpiral(random(900,1000), (int)random(25,30), random(150,200), random(0.8,0.992));
     popMatrix();
   }
 
@@ -89,6 +89,7 @@ void drawSpiral(float pts, int rots, float radius, float fallOff) {
   float theta = 0;
   beginShape();
   stroke(spiralColor);
+  strokeWeight((int)random(3,5));
   for (int i=0; i<pts; i++) {
     x = cos(theta)*radius;
     y = sin(theta)*radius;
